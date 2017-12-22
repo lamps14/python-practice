@@ -10,19 +10,42 @@ Ask the user for two numbers: one number to check (call it num) and one number t
 If check divides evenly into num, tell that to the user. If not, print a different appropriate message.
 """
 
-userInput = (input("Please provide a number:"))
 
-while userInput == '':
-    try:
-        raise ValueError("You must specify a number to continue:")
-    except ValueError as err:
-        print(err)
-        userInput = input()
+def main():
+    user_input = (input("Please provide a number:"))
+    user_input = null_check(user_input)
+    user_input = int(user_input)
 
-userInput = int(userInput)
+    if (user_input % 4) == 0:
+        print("This is divisible by 4")
+    elif (user_input % 2) == 0:
+        print("This is an even number")
+    else:
+        print("This is an odd number")
 
-if (userInput % 2) == 0:
-    print("This is an even number")
-else:
-    print("This is an odd number")
+    num = input("Provide another number:")
+    num = null_check(num)
+    num = int(num)
 
+    check = input("Provide another number to do a calculation:")
+    check = null_check(check)
+    check = int(check)
+
+    remainder = num % check
+
+    if remainder == 0:
+        print("{} successfully divides into {}".format(check, num))
+    else:
+        print("There is {} remaining when dividing {} by {}".format(remainder, check, num))
+
+
+def null_check(value):
+    while value == '':
+        try:
+            raise ValueError("You must specify a number to continue:")
+        except ValueError as err:
+            print(err)
+            return input()
+
+
+if __name__ == "__main__": main()
