@@ -13,58 +13,41 @@ Print out that many copies of the previous message on separate lines.
 import datetime
 
 
+def null_check(user_data, message):
+
+    while user_data == '':
+        try:
+            raise ValueError(message)
+        except ValueError as err:
+            print(err)
+            user_data = input()
+
+    return user_data
+
+
 def main():
-    name = input("What is your name?")
-
-    while name == '':
-        try:
-            raise ValueError("You must specify a name to continue:")
-        except ValueError as err:
-            print(err)
-            name = input()
-
-    age = input("Hello {}. What is your age?".format(name))
-
-    while age == '':
-        try:
-            raise ValueError("you must provide an age to proceed:")
-        except ValueError as err:
-            print(err)
-            age = (input())
-
-    age = int(age)
+    name = null_check(input("What is your name? "), "You must specify a name to proceed:")
+    age = int(null_check(input("Hello {}. What is your age? ".format(name)), "you must provide an age to proceed:"))
     birth_year = datetime.datetime.now().year - age
     hundredth_birthday = birth_year + 100
+    iterator = null_check(input("Can you provide a value between 1 - 10?"), "you must provide a valid integer to proceed:")
 
-    i = input("Can you provide a value between 1 - 10?")
-
-    while i == '':
+    while int(iterator) > 10:
         try:
-            raise ValueError("You must provide a valid integer to proceed:")
+            raise ValueError("I need a number between 1 and 10. Provide a value within that range:")
         except ValueError as err:
             print(err)
-            i = input()
-    while int(i) > 10:
-        try:
-            raise ValueError("I need a number between 1 and 10. Can you provide a value within that range?")
-        except ValueError as err:
-            print(err)
-            i = input()
-            while i == '':
-                try:
-                    raise ValueError("You must provide a valid integer to proceed:")
-                except ValueError as err:
-                    print(err)
-                    i = input()
-    i = int(i)
+            iterator = null_check(input(), "you must provide a valid integer to proceed:")
 
-    while i > 0:
+    iterator = int(iterator)
+
+    while iterator > 0:
         if age < 100:
             print("The year {} will turn 100 is {}".format(name, hundredth_birthday))
         else:
             length_of_time = datetime.datetime.now().year - hundredth_birthday
             print("{} turned 100 {} years ago, in {}".format(name, length_of_time, hundredth_birthday))
-        i -= 1
+        iterator -= 1
 
 
 if __name__ == "__main__": main()
