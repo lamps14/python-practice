@@ -13,18 +13,6 @@ Print out that many copies of the previous message on separate lines.
 import datetime
 
 
-def null_check(user_data, message):
-
-    while user_data == '':
-        try:
-            raise ValueError(message)
-        except ValueError as err:
-            print(err)
-            user_data = input()
-
-    return user_data
-
-
 def main():
     name = null_check(input("What is your name? "), "You must specify a name to proceed:")
     age = int(null_check(input("Hello {}. What is your age? ".format(name)), "you must provide an age to proceed:"))
@@ -49,5 +37,16 @@ def main():
             print("{} turned 100 {} years ago, in {}".format(name, length_of_time, hundredth_birthday))
         iterator -= 1
 
+
+def null_check(user_data, message):
+
+    while user_data == '':
+        try:
+            raise ValueError(message)
+        except ValueError as err:
+            print(err)
+            user_data = input()
+
+    return user_data
 
 if __name__ == "__main__": main()
