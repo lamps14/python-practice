@@ -18,8 +18,8 @@ def main():
 
     while name == '':
         try:
-            raise NameError("You must specify a name to continue:")
-        except NameError as err:
+            raise ValueError("You must specify a name to continue:")
+        except ValueError as err:
             print(err)
             name = input()
 
