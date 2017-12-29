@@ -9,7 +9,7 @@ If the number is a multiple of 4, print out a different message.
 Ask the user for two numbers: one number to check (call it num) and one number to divide by (check).
 If check divides evenly into num, tell that to the user. If not, print a different appropriate message.
 """
-
+from helpers import error_checker
 
 def main():
     user_input = (input("Please provide a number:"))
@@ -24,11 +24,11 @@ def main():
         print("This is an odd number")
 
     num = input("Provide another number:")
-    num = null_check(num)
+    num = error_checker(num)
     num = int(num)
 
     check = input("Provide another number to do a calculation:")
-    check = null_check(check)
+    check = error_checker(check)
     check = int(check)
 
     remainder = num % check
@@ -37,15 +37,6 @@ def main():
         print("{} successfully divides into {}".format(check, num))
     else:
         print("There is {} remaining when dividing {} by {}".format(remainder, check, num))
-
-
-def null_check(value):
-    while value == '':
-        try:
-            raise ValueError("You must specify a number to continue:")
-        except ValueError as err:
-            print(err)
-            return input()
 
 
 if __name__ == "__main__": main()

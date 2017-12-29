@@ -12,3 +12,24 @@ Write this in one line of Python.
 Ask the user for a number and return a list that contains only elements from the original
 list a that are smaller than that number given by the user.
 """
+from helpers import error_checker
+
+
+def main():
+    number_list = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    new_number_list = []
+    user_generated_list = []
+
+    for number in number_list:
+        if number < 5:
+            print('index: {} value: {}'.format(number_list.index(number), number))
+            new_number_list.append(number)
+
+    print(new_number_list)
+
+    user_input_value = input("Please provide a value: ")
+    user_input_value = error_checker(user_input_value)
+    user_input_value = int(user_input_value)
+
+
+if __name__ == "__main__": main()

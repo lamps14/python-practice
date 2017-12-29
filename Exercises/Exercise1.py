@@ -11,6 +11,7 @@ Print out that many copies of the previous message on separate lines.
 (Hint: the string "\n is the same as pressing the ENTER button)
 """
 import datetime
+from helpers import error_checker
 
 
 def main():
