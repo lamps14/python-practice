@@ -49,4 +49,5 @@ def null_check(user_data, message):
 
     return user_data
 
+
 if __name__ == "__main__": main()
