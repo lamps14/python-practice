@@ -11,9 +11,10 @@ If check divides evenly into num, tell that to the user. If not, print a differe
 """
 from helpers import error_checker
 
+
 def main():
     user_input = (input("Please provide a number:"))
-    user_input = null_check(user_input)
+    user_input = error_checker(user_input)
     user_input = int(user_input)
 
     if (user_input % 4) == 0:

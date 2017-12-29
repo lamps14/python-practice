@@ -15,18 +15,18 @@ from helpers import error_checker
 
 
 def main():
-    name = null_check(input("What is your name? "), "You must specify a name to proceed:")
-    age = int(null_check(input("Hello {}. What is your age? ".format(name)), "you must provide an age to proceed:"))
+    name = error_checker(input("What is your name? "), "You must specify a name to proceed:")
+    age = int(error_checker(input("Hello {}. What is your age? ".format(name)), "you must provide an age to proceed:"))
     birth_year = datetime.datetime.now().year - age
     hundredth_birthday = birth_year + 100
-    iterator = null_check(input("Can you provide a value between 1 - 10?"), "you must provide a valid integer to proceed:")
+    iterator = error_checker(input("Can you provide a value between 1 - 10?"), "you must provide a valid integer to proceed:")
 
     while int(iterator) > 10:
         try:
             raise ValueError("I need a number between 1 and 10. Provide a value within that range:")
         except ValueError as err:
             print(err)
-            iterator = null_check(input(), "you must provide a valid integer to proceed:")
+            iterator = error_checker(input(), "you must provide a valid integer to proceed:")
 
     iterator = int(iterator)
 
@@ -37,18 +37,6 @@ def main():
             length_of_time = datetime.datetime.now().year - hundredth_birthday
             print("{} turned 100 {} years ago, in {}".format(name, length_of_time, hundredth_birthday))
         iterator -= 1
-
-
-def null_check(user_data, message):
-
-    while user_data == '':
-        try:
-            raise ValueError(message)
-        except ValueError as err:
-            print(err)
-            user_data = input()
-
-    return user_data
 
 
 if __name__ == "__main__": main()
