@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-
-
 def error_checker(user_data, message='You must specify a number to continue:'):
 
     while user_data == '':
