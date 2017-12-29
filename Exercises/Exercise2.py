@@ -24,13 +24,8 @@ def main():
     else:
         print("This is an odd number")
 
-    num = input("Provide another number:")
-    num = error_checker(num)
-    num = int(num)
-
-    check = input("Provide another number to do a calculation:")
-    check = error_checker(check)
-    check = int(check)
+    num = int(error_checker(input("Provide another number:")))
+    check = int(error_checker(input("Provide another number to do a calculation:")))
 
     remainder = num % check
 
