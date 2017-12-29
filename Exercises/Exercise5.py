@@ -16,8 +16,6 @@ Randomly generate two lists to test this
 Write this in one line of Python (don’t worry if you can’t figure this out at this point - we’ll get to it soon)
 """
 
-import random
-
 
 def main():
     first_list = list(range(20))
