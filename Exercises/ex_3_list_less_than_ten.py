@@ -13,7 +13,7 @@ Ask the user for a number and return a list that contains only elements from the
 list a that are smaller than that number given by the user.
 """
 
-from helpers import error_checker
+from helpers import user_data_validation
 
 number_list = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 
@@ -37,7 +37,7 @@ def create_new_list():
 
 def create_user_generated_list():
     user_generated_list = []
-    user_input_value = int(error_checker(input('Please provide a value: ')))
+    user_input_value = int(user_data_validation(input('Please provide a value: ')))
 
     for number in number_list:
         if number < user_input_value:

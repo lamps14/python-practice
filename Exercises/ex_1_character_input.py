@@ -11,22 +11,22 @@ Print out that many copies of the previous message on separate lines.
 (Hint: the string '\n is the same as pressing the ENTER button)
 """
 import datetime
-from helpers import error_checker
+from helpers import user_data_validation
 
 
 def main():
-    name = error_checker(input('What is your name? '), 'You must specify a name to proceed:')
-    age = int(error_checker(input('Hello {}. What is your age? '.format(name)), 'you must provide an age to proceed:'))
+    name = user_data_validation(input('What is your name? '), 'You must specify a name to proceed:')
+    age = int(user_data_validation(input('Hello {}. What is your age? '.format(name)), 'you must provide an age to proceed:'))
     birth_year = datetime.datetime.now().year - age
     hundredth_birthday = birth_year + 100
-    iterator = error_checker(input('Can you provide a value between 1 - 10?'), 'you must provide a valid integer to proceed:')
+    iterator = user_data_validation(input('Can you provide a value between 1 - 10?'), 'you must provide a valid integer to proceed:')
 
     while int(iterator) > 10:
         try:
             raise ValueError('I need a number between 1 and 10. Provide a value within that range:')
         except ValueError as err:
             print(err)
-            iterator = error_checker(input(), 'you must provide a valid integer to proceed:')
+            iterator = user_data_validation(input(), 'you must provide a valid integer to proceed:')
 
     iterator = int(iterator)
 

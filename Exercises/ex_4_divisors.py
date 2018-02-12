@@ -5,10 +5,10 @@ Create a program that asks the user for a number and then prints out a list of a
 For example, 13 is a divisor of 26 because 26 / 13 has no remainder.)
 """
 
-from helpers import error_checker
+from helpers import user_data_validation
 
 # Globals
-user_generated_value = int(error_checker(input('Please provide a number: ')))
+user_generated_value = int(user_data_validation(input('Please provide a number: ')))
 calculations = []
 
 
@@ -37,7 +37,7 @@ def print_divisors():
 def main():
     print('divisors of the number {} are:'.format(user_generated_value))
     print_divisors()
-    user_response = error_checker(input("would you like to see the calculations? (Y/N)"), "Please provide an answer: ").lower()
+    user_response = user_data_validation(input("would you like to see the calculations? (Y/N)"), "Please provide an answer: ").lower()
     if user_response == "y":
         print_calculations()
 

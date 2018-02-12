@@ -9,12 +9,12 @@ If the number is a multiple of 4, print out a different message.
 Ask the user for two numbers: one number to check (call it num) and one number to divide by (check).
 If check divides evenly into num, tell that to the user. If not, print a different appropriate message.
 """
-from helpers import error_checker
+from helpers import user_data_validation
 
 
 def main():
     user_input = (input('Please provide a number:'))
-    user_input = error_checker(user_input)
+    user_input = user_data_validation(user_input)
     user_input = int(user_input)
 
     if (user_input % 4) == 0:
@@ -24,8 +24,8 @@ def main():
     else:
         print('This is an odd number')
 
-    num = int(error_checker(input('Provide another number:')))
-    check = int(error_checker(input('Provide another number to do a calculation: ')))
+    num = int(user_data_validation(input('Provide another number:')))
+    check = int(user_data_validation(input('Provide another number to do a calculation: ')))
 
     remainder = num % check
 

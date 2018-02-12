@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def error_checker(user_data, message='You must specify a number to continue:'):
+def user_data_validation(user_data, message='You must specify a number to continue:'):
 
     while user_data == '':
         try:
@@ -8,7 +8,11 @@ def error_checker(user_data, message='You must specify a number to continue:'):
             print(err)
             user_data = input()
 
+    if user_data == "exit":
+        quit()
+
     return user_data
+
 
 
 def turn_checker (user_data, message='You must specify a valid turn, Please enter either Rock, Paper or Scissors:'):
