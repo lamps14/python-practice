@@ -11,13 +11,11 @@ Keep the game going until the user types “exit”
 Keep track of how many guesses the user has taken, and when the game ends, print this out.
 """
 
-
 import random
 from helpers import user_data_validation
 
 
 def main():
-
     random_number = random.randint(1, 9)
     user_guess = int(user_data_validation(
         input("Guess the number that the computer has generated beteween 1 and 9: ")))
@@ -34,11 +32,10 @@ def main():
         user_guess = int(user_data_validation(
             input("Guess the number that the computer has generated beteween 1 and 9: ")))
 
-
     while user_guess_not_equal_to_random_number:
         if user_guess > random_number:
             print("Your guess is too high")
-            number_of_guesses +=1
+            number_of_guesses += 1
             user_guess = int(user_data_validation(
                 input("Guess the number that the computer has generated beteween 1 and 9: ")))
         elif user_guess < random_number:
