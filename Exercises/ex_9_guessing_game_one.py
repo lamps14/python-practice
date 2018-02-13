@@ -18,7 +18,7 @@ from helpers import user_data_validation
 def main():
     random_number = random.randint(1, 9)
     user_guess = int(user_data_validation(
-        input("Guess the number that the computer has generated beteween 1 and 9: ")))
+        input("Guess the number that the computer has generated between 1 and 9: ")))
     user_guess_not_equal_to_random_number = True
     number_of_guesses = 0
 
@@ -30,19 +30,19 @@ def main():
             print("please choose a value between 1 and 9")
 
         user_guess = int(user_data_validation(
-            input("Guess the number that the computer has generated beteween 1 and 9: ")))
+            input("Guess the number that the computer has generated between 1 and 9: ")))
 
     while user_guess_not_equal_to_random_number:
         if user_guess > random_number:
             print("Your guess is too high")
             number_of_guesses += 1
             user_guess = int(user_data_validation(
-                input("Guess the number that the computer has generated beteween 1 and 9: ")))
+                input("Guess the number that the computer has generated between 1 and 9: ")))
         elif user_guess < random_number:
             print("Your guess is too low")
             number_of_guesses += 1
             user_guess = int(user_data_validation(
-                input("Guess the number that the computer has generated beteween 1 and 9: ")))
+                input("Guess the number that the computer has generated between 1 and 9: ")))
         else:
             number_of_guesses += 1
             print("your guess is correct! You took {} guesses".format(number_of_guesses))
