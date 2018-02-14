@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 def user_data_validation(user_data, message='You must specify a number to continue:'):
-
     while user_data == '':
         try:
             raise ValueError(message)
@@ -14,8 +13,7 @@ def user_data_validation(user_data, message='You must specify a number to contin
     return user_data
 
 
-
-def turn_checker (user_data, message='You must specify a valid turn, Please enter either Rock, Paper or Scissors:'):
+def turn_checker(user_data, message='You must specify a valid turn, Please enter either Rock, Paper or Scissors:'):
     while user_data not in ['Rock', 'Paper' 'Scissors']:
         try:
             raise NameError(message)
